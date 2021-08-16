@@ -18,10 +18,15 @@ mtimes:
 	git ls-files | xargs stat --printf "touch %n --date='%y'\n" >> $@
 	chmod +x $@
 
-.PHONY: current
-current: ## Display current file mtimes
-current:
+.PHONY: display
+display: ## Display file mtimes
+display:
 	git ls-files | xargs stat --printf "%n %y\n"
+
+.PHONY: current
+current: ## Update file mtimes to current time
+current:
+	git ls-files | xargs touch
 
 .PHONY: update
 update: ## Update file mtimes
