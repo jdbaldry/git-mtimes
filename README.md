@@ -2,6 +2,10 @@
 
 Exploration into storing file mtimes in git so that Make can be used after cloning.
 
+## Why
+
+GNU Make is a great tool for avoiding excessive rebuilding but CI systems often clone the repository, losing all file context, and making Makefiles ineffective.
+
 ## Example
 
 The Makefile in this repository has phony targets that demonstrate how to store and restore mtimes from a file that is committed to the git repository.
